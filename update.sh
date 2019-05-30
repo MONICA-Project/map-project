@@ -13,8 +13,8 @@ cd mqtt
 git pull
 cd ..
 cd ..
-echo "Pull mqtt-map"
-cd mqtt-map
+echo "Pull Lora-Map"
+cd Lora-Map
 git pull
 cd ..
 echo "Switch to subdir Utils"
