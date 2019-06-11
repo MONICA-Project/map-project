@@ -1,0 +1,44 @@
+# This file is a template, and might need editing before it works on your project.
+# This is a simple gitlab continuous integration template (compatible with the shared runner provided on gitlab.com)
+# using the official mono docker image to build a visual studio project.
+#
+# Lora-Map\
+#   Lora-Map.sln
+#   Lora-Map\
+#     Lora-Map.csproj (console application)
+#
+# Please find the full example project here:
+# https://gitlab.com/tobiaskoch/gitlab-ci-example-mono
+
+# see https://hub.docker.com/_/mono/
+image: mono:latest
+
+stages:
+  - build
+  - test
+#  - deploy
+
+#before_script:
+#  - nuget restore -NonInteractive
+
+#release:
+#  stage: deploy
+#  only:
+#    - master
+#  artifacts:
+#    paths:
+#      - build/release/MyProject.exe
+#  script:
+#    # The output path is relative to the position of the csproj-file
+#    - msbuild /p:Configuration="Release" /p:Platform="Any CPU"
+#      /p:OutputPath="./../../build/release/" "MyProject.sln"
+
+debug:
+  stage: test
+  script:
+    # The output path is relative to the position of the csproj-file
+    - msbuild /p:Configuration="Debug" /p:Platform="Any CPU"
+      /p:OutputPath="./bin/Debug/" "Lora-Map/Lora-Map.sln"
+  tags:
+    - docker
+
