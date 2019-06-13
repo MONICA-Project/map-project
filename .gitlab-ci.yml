@@ -13,36 +13,33 @@
 # see https://hub.docker.com/_/mono/
 image: mono:latest
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 stages:
   - build
-  - test
-#  - deploy
+  - deploy
 
-before_script:
-   - git submodule sync --recursive
-   - git submodule update --init --recursive
-   
 #before_script:
 #  - nuget restore -NonInteractive
 
-#release:
-#  stage: deploy
-#  only:
-#    - master
-#  artifacts:
-#    paths:
-#      - build/release/MyProject.exe
-#  script:
-#    # The output path is relative to the position of the csproj-file
-#    - msbuild /p:Configuration="Release" /p:Platform="Any CPU"
-#      /p:OutputPath="./../../build/release/" "MyProject.sln"
-
-debug:
-  stage: test
+release:
+  stage: deploy
+  only:
+    - master
+  artifacts:
+    paths:
+      - Builds/*.deb
   script:
     # The output path is relative to the position of the csproj-file
-    - msbuild /p:Configuration="Debug" /p:Platform="Any CPU"
-      /p:OutputPath="./bin/Debug/" "Lora-Map/Lora-Map.sln"
+    - ./Lora-Map/Lora-Map/dpkg/make-deb.sh armhf
+    - ./Lora-Map/Lora-Map/dpkg/make-deb.sh armhf
+
+debug:
+  stage: build
+  script:
+    # The output path is relative to the position of the csproj-file
+    - msbuild /p:Configuration="Debug" /p:Platform="Any CPU" /p:OutputPath="./bin/Debug/" "Lora-Map/Lora-Map.sln"
+    - msbuild /p:Configuration="Release" /p:Platform="Any CPU" /p:OutputPath="./bin/Debug/" "Lora-Map/Lora-Map.sln"
   tags:
     - docker
-
