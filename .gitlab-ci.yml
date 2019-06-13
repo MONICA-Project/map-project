@@ -34,6 +34,8 @@ release:
     # The output path is relative to the position of the csproj-file
     - ./Lora-Map/Lora-Map/dpkg/make-deb.sh armhf
     - ./Lora-Map/Lora-Map/dpkg/make-deb.sh armhf
+  tags:
+    - docker
 
 debug:
   stage: build
