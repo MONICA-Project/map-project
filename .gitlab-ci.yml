@@ -32,6 +32,8 @@ release:
       - Builds/*.deb
   script:
     # The output path is relative to the position of the csproj-file
+    - msbuild /p:Configuration="Release" /p:Platform="Any CPU" /p:OutputPath="./bin/Debug/" "Lora-Map/Lora-Map.sln"
+    - chmod oug+x Lora-Map/Lora-Map/dpkg/make-deb.sh
     - ./Lora-Map/Lora-Map/dpkg/make-deb.sh armhf
     - ./Lora-Map/Lora-Map/dpkg/make-deb.sh armhf
   tags:
@@ -42,6 +44,5 @@ debug:
   script:
     # The output path is relative to the position of the csproj-file
     - msbuild /p:Configuration="Debug" /p:Platform="Any CPU" /p:OutputPath="./bin/Debug/" "Lora-Map/Lora-Map.sln"
-    - msbuild /p:Configuration="Release" /p:Platform="Any CPU" /p:OutputPath="./bin/Debug/" "Lora-Map/Lora-Map.sln"
   tags:
     - docker
