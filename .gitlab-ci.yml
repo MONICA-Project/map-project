@@ -32,6 +32,7 @@ release:
       - Builds/*.deb
   script:
     # The output path is relative to the position of the csproj-file
+    - mkdir Builds
     - msbuild /p:Configuration="Release" /p:Platform="Any CPU" /p:OutputPath="./bin/Release/" "Lora-Map/Lora-Map.sln"
     - cd Lora-Map/Lora-Map/dpkg
     - chmod oug+x make-deb.sh
