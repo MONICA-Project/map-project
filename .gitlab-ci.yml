@@ -33,9 +33,10 @@ release:
   script:
     # The output path is relative to the position of the csproj-file
     - msbuild /p:Configuration="Release" /p:Platform="Any CPU" /p:OutputPath="./bin/Debug/" "Lora-Map/Lora-Map.sln"
-    - chmod oug+x Lora-Map/Lora-Map/dpkg/make-deb.sh
-    - ./Lora-Map/Lora-Map/dpkg/make-deb.sh armhf
-    - ./Lora-Map/Lora-Map/dpkg/make-deb.sh armhf
+    - cd Lora-Map/Lora-Map/dpkg
+    - chmod oug+x make-deb.sh
+    - ./make-deb.sh armhf
+    - ./make-deb.sh armhf
   tags:
     - docker
 
