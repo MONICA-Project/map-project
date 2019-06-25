@@ -117,4 +117,7 @@ else
 	cd ..
 fi
 
-read -p "Press return"
+if [ -z "$1" ]
+then
+	read -p "Please Press key"
+fi
