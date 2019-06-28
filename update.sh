@@ -1,4 +1,19 @@
 #!/bin/bash
+echo "Pull Librarys/Coordinates"
+if [ -a Librarys/Coordinates/.git ] 
+then
+	cd Librarys/Coordinates
+	git pull
+	cd ..
+	cd ..
+else
+	git submodule update --init --  Librarys/Coordinates
+	cd Librarys/Coordinates
+	git checkout master
+	cd ..
+	cd ..
+fi
+
 echo "Pull Librarys/litjson"
 if [ -a Librarys/litjson/.git ] 
 then
