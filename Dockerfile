@@ -6,6 +6,7 @@ WORKDIR /build
 COPY Librarys/litjson /build/Librarys/litjson
 COPY Librarys/Mono.Posix /build/Librarys/Mono.Posix
 COPY Librarys/mqtt /build/Librarys/mqtt
+COPY Librarys/Coordinates /build/Librarys/Coordinates
 COPY Lora-Map /build/Lora-Map
 COPY Utils/Bot-Utils /build/Utils/Bot-Utils
 COPY Utils/ConnectorDataMqtt /build/Utils/ConnectorDataMqtt
