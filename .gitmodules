@@ -1,6 +1,6 @@
 [submodule "Lora-Map"]
 	path = Lora-Map
-	url = https://gitlab.fit.fraunhofer.de/monica/lora-map/lora-map.git
+	url = https://github.com/MONICA-Project/lora-map.git
 [submodule "Utils/Utils-IoT"]
 	path = Utils/Utils-IoT
 	url = http://git.blubbfish.net/vs_utils/Utils-IoT.git
