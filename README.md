@@ -17,7 +17,7 @@ The project documentation is available on the [Wiki](https://github.com/MONICA-P
 ### Checkout
 Please checkout this project with it submodules:
 ```bash
-git clone https://github.com/MONICA-Project/lora-project
+git clone https://github.com/MONICA-Project/map-project
 bash update.sh 
 ```
 
