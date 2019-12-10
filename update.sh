@@ -29,21 +29,6 @@ else
 	cd ..
 fi
 
-echo "Pull Librarys/Mono.Posix"
-if [ -a Librarys/Mono.Posix/.git ] 
-then
-	cd Librarys/Mono.Posix
-	git pull
-	cd ..
-	cd ..
-else
-	git submodule update --init --  Librarys/Mono.Posix
-	cd Librarys/Mono.Posix
-	git checkout master
-	cd ..
-	cd ..
-fi
-
 echo "Pull Librarys/mqtt"
 if [ -a Librarys/mqtt/.git ] 
 then

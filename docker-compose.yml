@@ -4,13 +4,11 @@ services:
   loramap:
     build:
       context: .
-    image: registry.fit.fraunhofer.de/monica/lora-map/map-project:latest
-    command: ["mono","./Lora-Map.exe"]
+    image: monicaproject/lora-map:latest
+    command: ["dotnet","./Lora-Map.dll"]
     ports:
       - 8080:8080
     volumes:
-      - "./config/requests.conf:/etc/loramap/requests.conf"
-      - "./config/settings.conf:/etc/loramap/settings.conf"
+      - "./config/config:/etc/loramap"
       - "./config/maps:/usr/local/bin/loramap/resources/maps"
       - "./config/json:/usr/local/bin/loramap/json"
-

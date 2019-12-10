@@ -25,10 +25,11 @@ bash update.sh
 To run the latest version of Lora-Map, [Checkout this repo](#Checkout) and then run:
 ```bash
 docker-compose build
-mkdir ./config/json
+mkdir ./config/config -p
 mkdir ./config/maps
-touch ./config/requests.conf
-cp ./Lora-Map/Lora-Map/config-example/settings.conf.example ./config/settings.conf
+mkdir ./config/json
+touch ./config/config/requests.conf
+cp ./Lora-Map/Lora-Map/config-example/settings.conf.example ./config/config/settings.conf
 docker-compose up
 ```
 Edit the `settings.conf` maybe.
@@ -48,15 +49,15 @@ On Windows you can create with `Lora-Map/Lora-Map/dpkg/create-Builds.bat` deb fi
 
 #### Linux
 
-[Checkout this repo](#Checkout) and run: `msbuild /p:Configuration="Release" /p:Platform="Any CPU" /p:OutputPath="./bin/Release/" "Lora-Map/Lora-Map.sln"`
+[Checkout this repo](#Checkout) and run: `dotnet build Lora-Map.sln --configuration Release`
 
-You must have `mono-complete`, `libmono-posix4.0-cil` and `libmono-system-web4.0-cil` installed
+You must have `dotnet-sdk-3.0` installed
 
 If you want to have deb files run `cd Lora-Map/Lora-Map/dpkg` and `bash make-deb.sh armhf` that you can install with `sudo dpkg -i armhf-loramap_x.x-x.deb`
 
 ### Prerequisite
 
-On Windows you need C# Runtime 4.7.2, on linux you need Mono, installation instructions are available [here](https://www.mono-project.com/download/stable/#download-lin-debian). You need only setup apt.
+You need C# .NET Core 3, installation instructions are available [here](https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-debian10). You need only setup apt.
 
 If you install the deb packets, it will check and install all dependencies.
 
