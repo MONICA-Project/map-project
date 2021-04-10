@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.0
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 
 RUN mkdir /build
 WORKDIR /build
@@ -17,12 +17,12 @@ COPY Utils/Utils-IoT /build/Utils/Utils-IoT
 WORKDIR /build/Lora-Map
 RUN dotnet build Lora-Map.sln --configuration Release
 
-RUN sed -i s/"<div id=\"version\">vx.x.x"/"<div id=\"version\">$(grep -e "<Version>" Lora-Map/Lora-Map.csproj | cut -d'>' -f 2 | cut -d'<' -f 1 | cut -d'.' -f 1).$(grep -e "<Version>" Lora-Map/Lora-Map.csproj | cut -d'>' -f 2 | cut -d'<' -f 1 | cut -d'.' -f 2).$(grep -e "<Version>" Lora-Map/Lora-Map.csproj | cut -d'>' -f 2 | cut -d'<' -f 1 | cut -d'.' -f 3)"/ Lora-Map/bin/Release/netcoreapp3.0/resources/index.html
+RUN sed -i s/"<div id=\"version\">vx.x.x"/"<div id=\"version\">$(grep -e "<Version>" Lora-Map/Lora-Map.csproj | cut -d'>' -f 2 | cut -d'<' -f 1 | cut -d'.' -f 1).$(grep -e "<Version>" Lora-Map/Lora-Map.csproj | cut -d'>' -f 2 | cut -d'<' -f 1 | cut -d'.' -f 2).$(grep -e "<Version>" Lora-Map/Lora-Map.csproj | cut -d'>' -f 2 | cut -d'<' -f 1 | cut -d'.' -f 3)"/ Lora-Map/bin/Release/netcoreapp3.1/resources/index.html
 
 RUN mkdir /usr/local/bin/loramap -p
-RUN cp Lora-Map/bin/Release/netcoreapp3.0/*.dll /usr/local/bin/loramap -r
-RUN cp Lora-Map/bin/Release/netcoreapp3.0/*.runtimeconfig.json /usr/local/bin/loramap -r
-RUN cp Lora-Map/bin/Release/netcoreapp3.0/resources /usr/local/bin/loramap -r
+RUN cp Lora-Map/bin/Release/netcoreapp3.1/*.dll /usr/local/bin/loramap -r
+RUN cp Lora-Map/bin/Release/netcoreapp3.1/*.runtimeconfig.json /usr/local/bin/loramap -r
+RUN cp Lora-Map/bin/Release/netcoreapp3.1/resources /usr/local/bin/loramap -r
 
 WORKDIR /usr/local/bin/loramap
 RUN rm -r /build
