@@ -3,22 +3,22 @@
 	url = https://github.com/MONICA-Project/lora-map.git
 [submodule "Utils/Utils-IoT"]
 	path = Utils/Utils-IoT
-	url = https://git.blubbfish.net/vs_utils/Utils-IoT.git
+	url = https://github.com/blubbfish/Utils-IoT.git
 [submodule "Utils/ConnectorDataMqtt"]
 	path = Utils/ConnectorDataMqtt
-	url = https://git.blubbfish.net/vs_utils/ConnectorDataMqtt.git
+	url = https://github.com/blubbfish/ConnectorDataMqtt.git
 [submodule "Utils/Bot-Utils"]
 	path = Utils/Bot-Utils
-	url = https://git.blubbfish.net/vs_utils/Bot-Utils.git
+	url = https://github.com/blubbfish/Bot-Utils.git
 [submodule "Utils/Utils"]
 	path = Utils/Utils
-	url = https://git.blubbfish.net/vs_utils/Utils.git
+	url = https://github.com/blubbfish/Utils.git
 [submodule "Librarys/litjson"]
 	path = Librarys/litjson
-	url = https://git.blubbfish.net/vs_librarys/litjson.git
+	url = https://github.com/blubbfish/litjson.git
 [submodule "Librarys/mqtt"]
 	path = Librarys/mqtt
-	url = https://git.blubbfish.net/vs_librarys/mqtt.git
+	url = https://github.com/blubbfish/mqtt.git
 [submodule "Librarys/Coordinates"]
 	path = Librarys/Coordinates
-	url = https://git.blubbfish.net/vs_librarys/Coordinates.git
+	url = https://github.com/blubbfish/Coordinates.git
